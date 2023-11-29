@@ -1,0 +1,21 @@
+{
+  "short_name": "سنجاب ",
+  "name": "سامانه سنجاب ",
+  "icons": [
+    {
+      "src": "/src/assets/images/192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/images/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/pwa?mode=standalone",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#026eff"
+}

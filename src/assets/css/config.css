@@ -1,0 +1,58 @@
+/* --[ Start Color Variable ]-- */
+/*--------------------------------------------------------*/
+/*----------            <- Violet ->            ----------*/
+/*--------------------------------------------------------*/
+/*----------             <- Brown ->            ----------*/
+/*--------------------------------------------------------*/
+/*----------             <- Pink ->             ----------*/
+/*--------------------------------------------------------*/
+/*----------            <- Purple ->            ----------*/
+/* --[ End Color Variable ]-- */
+/* --[ Start fonts Variable ]-- */
+@font-face {
+  font-family: ghoticregular;
+  src: url("../font/CenturyGothicRegular.ttf") format("truetype"); }
+@font-face {
+  font-family: IRANSansWeb;
+  src: url("../font/IRANSansWeb.eot"), url("../font/IRANSansWeb.woff") format("woff"), url("../font/IRANSansWeb.ttf") format("truetype"); }
+@font-face {
+  font-family: iransansBold;
+  src: url("../font/IRANSansWeb_Bold.eot?#") format("eot"), url("../font/IRANSansWeb_Bold.woff") format("woff"), url("../font/IRANSansWeb_Bold.ttf") format("truetype"); }
+@font-face {
+  font-family: Lalezar;
+  src: url("../font/Lalezar.eot"), url("../font/Lalezar.woff") format("woff"), url("../font/Lalezar.ttf") format("truetype"); }
+@font-face {
+  font-family: 'icomoon';
+  src: url("../font/icomoon.eot?9y706j");
+  src: url("../font/icomoon.eot?9y706j#iefix") format("embedded-opentype"), url("../font/icomoon.ttf?9y706j") format("truetype"), url("../font/icomoon.woff?9y706j") format("woff"), url("../font/icomoon.svg?9y706j#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* --[ End fonts Variable ]-- */
+/* --[ Start Mixins ]-- */
+/*--------------------------------------------------------*/
+/*----------          Transform Effect          ----------*/
+/*--------------------------------------------------------*/
+/*--------------------------------------------------------*/
+/*--------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*----------          Triangle Shape          ----------*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*---------------------------------------------------------*/
+/*----------          Transition Effect          ----------*/
+/*---------------------------------------------------------*/
+/*---------------------------------------------------------*/
+/*---------------------------------------------------------*/
+/* --[ Start Media Query Mixin ]-- */
+/* --[ A map of breakpoints. ]-- */
+/* --[ RESPOND ABOVE ]-- */
+/* --[ @include respond-above(sm) {} ]-- */
+/* --[ RESPOND BELOW ]-- */
+/* --[ @include respond-below(sm) {} ]-- */
+/* --[ RESPOND BETWEEN ]-- */
+/* --[ @include respond-between(sm, md) {} ]-- */
+/* --[ End Media Query Mixin ]-- */
+/* --[ End Mixins ]-- */
+
+/*# sourceMappingURL=config.css.map */

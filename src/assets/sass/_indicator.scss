@@ -1,0 +1,61 @@
+@import "config";
+.header-Sec{
+  border-bottom: 3px solid #fff;
+  .title{
+    margin-left: -30px;
+
+    .showOnHover{
+      display: inline-block;
+      transform-origin: right;
+      @include transform-scale(0,1);
+      font-size: 0;
+      @include transition(.3s);
+
+    }
+    &:hover{
+      .showOnHover {
+        font-size: 1em;
+        @include transform-scale(1, 1);
+      }
+    }
+    @media (max-width: 439px) {
+      margin: 0 auto;
+    }
+  }
+  .btn-return{
+    /*@include  border-radius(80px);*/
+    @media (max-width: 439px) {
+      margin: 0 auto;
+    }
+  }
+
+}
+
+.content{
+  .indexSec{
+    .indexs{
+      width: 8em;
+    }
+
+  }
+  .chart-section{
+    .btnOrange{
+      background: #fff;
+      color: $orange;
+      &:hover{
+        background: $orange;
+        color: #fff;
+      }
+    }
+    .active{
+      background: $orange;
+      color: #fff;
+    }
+    .OrdersChart{
+      height: 400px;
+    }
+    .SalesChart{
+      height: 400px;
+    }
+  }
+}

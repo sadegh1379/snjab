@@ -1,0 +1,37 @@
+@import "config";
+/*copy to config*/
+$blue3:#dbebf8;
+$browncolor:#A24A10;
+.bg-blue3{
+  background-color: $blue3;
+}
+.border-brown{
+  border-color: $browncolor;
+}
+/*copy to config*/
+
+
+/*copy to template*/
+.btn-blue{
+  background-color: $blue !important;
+  border: $blue !important;
+  color: white !important;
+}
+.btn-outline-blue{
+  border-color: $blue !important;
+  color: $blue !important;
+  background-color: white !important;
+  &:hover,&.active,&:focus{
+    border-color: white !important;
+    color: white !important;
+    background-color: $blue !important;
+  }
+}
+
+.preview_container {
+  width: 100% !important;
+}
+/*copy to template*/
+
+
+

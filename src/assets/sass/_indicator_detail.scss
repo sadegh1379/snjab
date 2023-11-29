@@ -1,0 +1,88 @@
+
+.indicator_detail{
+  .headerIndeicator{
+    position: relative;
+    top: 52px;
+  }
+  .titleInput{
+    position: relative;
+    top: 26px;
+    @include box-shadow(0px 0px 4px 1px #ccc);
+  }
+
+  .inputIndicator{
+    height: 200px;
+  }
+  input {
+    @include box-shadow(0px 0px 4px 1px #ccc);
+  }
+  .calculation{
+    @include box-shadow(0px 0px 4px 1px #ccc);
+    @include border-radius(10px);
+    .h-line{
+      height: .3em;
+      background: #ccc;
+      border-radius: 10px;
+      max-width: 56%;
+      margin-left: 2%;
+    }
+    i,svg{
+      color: #ccc;
+    }
+    @media only screen and(max-width: 865px){
+      .h-line{
+        max-width: 59%;
+        margin-left: -2%;
+      }
+    }
+    @media only screen and(max-width: 575px){
+      .h-line{
+        margin-left: 8%;
+      }
+    }
+  }
+
+  .calculation-inputs{
+    @include box-shadow(0px 0px 4px 1px #ccc);
+    @include border-radius(10px);
+    input{
+      border-radius:17px !important;
+    }
+    .rounded-underline{
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+        height: 6px;
+        background-color: $blue;
+        width: 100%;
+        transition: width .25s;
+        border-radius: 50px;
+      }
+    }
+
+  }
+}
+
+
+.box-border {
+  border: 2px solid #dbdbdb;
+  padding: 20px;
+}
+
+.dateBox {
+  border: 2px solid #dbdbdb;
+}
+
+.dateText{
+  width: 50%;
+  margin-bottom: 0
+}
+
+.box-target {
+  border: 2px solid #dbdbdb;
+  border-radius: 20px;
+  width: 100px;
+}

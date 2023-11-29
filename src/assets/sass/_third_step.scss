@@ -1,0 +1,39 @@
+
+.third-step{
+
+    .step-content{
+      .time{
+        button{
+          @include box-shadow(0px 0px 4px 1px $gray);
+          @include border-radius(10px);
+          height: 9em;
+          color: $blue;
+          width: 85%;
+          background: linear-gradient(123deg, white 75%, $lightGray 25%);
+        }
+        .active-time-btn{
+          border: 1px solid $blue;
+        }
+        @media only screen and (max-width: 590px){
+          button{
+            width: 95%;
+          }
+        }
+      }
+
+      .final-time{
+        @include box-shadow(0px 0px 4px 0px $gray);
+        @include border-radius(20px);
+
+        .final-date{
+          span{
+            border-bottom: 2px dotted black;
+            min-width: 2em;
+            display: block;
+          }
+        }
+      }
+
+    }
+
+}

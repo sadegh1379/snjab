@@ -1,0 +1,141 @@
+.header-Sec{
+  border-bottom: 3px solid #fff;
+  .title{
+    @media (max-width: 439px) {
+      margin: 0 auto;
+    }
+  }
+  .btn-return{
+    /*@include  border-radius(80px);*/
+    @media (max-width: 439px) {
+      margin: 0 auto;
+    }
+  }
+}
+.content{
+  .card-body{
+    font-size: 1.15em !important;
+
+  }
+  /*charts sec*/
+  .chart-section{
+    .btnOrange{
+      background: #fff;
+      color: $orange;
+      &:hover{
+        background: $orange;
+        color: #fff;
+      }
+    }
+    .active{
+      background: $orange;
+      color: #fff;
+    }
+    .OrdersChart{
+      height: 400px;
+    }
+    .SalesChart{
+      height: 400px;
+    }
+
+    .request{
+      p{
+        opacity: 0.7;
+      }
+    }
+  }
+
+  /*pagination sec*/
+  .requstedCourses{
+    ul{
+      .btn-pages{
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+      }
+      .active{
+        border: 3px solid $green;
+      }
+      .dactive{
+        border: 3px solid transparent;
+      }
+    }
+  }
+  /*table*/
+  .table-title{
+    background-color: $dark;
+    @include border-radius(20px);
+  }
+  .contentsTbl{
+    .contents-row{
+      @include box-shadow(0px 0px 4px 1px $gray);
+      @include border-radius(30px);
+      img{
+        width: 2.7em;
+      }
+    }
+    .odd-contents-row{
+      background-color: rgb(238,238,238);
+    }
+    div{
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      div{
+        color: gray;
+      }
+    }
+  }
+  .period{
+    @media screen and (max-width: 992px){
+      justify-content: end !important;
+    };
+    span{
+      font-size: 1.15em !important;
+      font-weight: 600;
+    }
+  }
+
+  .modal{
+    .modal-content{
+      border-radius: 1em !important;
+      .modal-header{
+        h4{
+          opacity: 0.8;
+        }
+        hr{
+          color: $blue;
+        }
+        .h-line{
+          border-bottom: 2px solid $blue;
+        }
+      }
+      .modal-body{
+        .custom-select-box{
+          select{
+            @include box-shadow(0px 0px 4px 1px $gray);
+            padding: 5px;
+            font-size: 16px;
+            background: url("../images/arrow.png") no-repeat right white;
+            background-position-x: 10px;
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            appearance:none;
+          }
+        }
+        input{
+          @include box-shadow(0px 0px 4px 1px $gray);
+        }
+        .input-group-prepend{
+          i,svg{
+            position: absolute;
+            z-index: 1000;
+            font-size: 1.5em;
+            left: 35px;
+            margin-top: 0.2em;
+          }
+        }
+      }
+    }
+  }
+}
+

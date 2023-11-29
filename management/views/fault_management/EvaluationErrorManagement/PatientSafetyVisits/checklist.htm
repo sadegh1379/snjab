@@ -1,0 +1,476 @@
+
+<br>
+<br>
+<br>
+
+
+<section class="container">
+    <div class="row">
+        <button class="btn btn-link center-block btn-squ" data-ng-click="toggle_config_set()">
+
+            <img src="{{BASE}}/asset/images/createchecklist.svg" class="center-block  ng-scope" data-ng-src="{{BASE}}/asset/images/createchecklist.svg" data-ng-if="!config_set" تدوین چک‌ لیست بازدید style="width: 7em;  cursor: pointer;">
+            <span class="text_of_btn iransansbold" data-ng-show="!config_set">تدوین چک‌ لیست بازدید</span>
+            <img src="{{BASE}}/asset/images/cross.png" class="center-block  ng-scope" data-ng-src="{{BASE}}/asset/images/cross.png" data-ng-if="config_set" style="width: 7em; cursor: pointer;">
+            <span class="text_of_btn iransansbold" data-ng-show="config_set">بستن</span>
+        </button>
+    </div>
+    <br>
+    <br>
+    <div class="row" data-ng-if="!config_set">
+        <div class="radius-10 pb-4 my-5 white-box box_shadow bordered">
+            <div style="overflow-x: auto">
+                <div class="table-title d-flex align-items-center rounded-pill text-white"
+                     style="min-width: 1070px">
+                    <div class="text-center iransansbold" style="width: 5%">ردیف</div>
+                    <div class="text-center iransansbold" style="width: 30%">عنوان چک لیست</div>
+                    <div class="text-center iransansbold" style="width: 30%">محور ارزیابی</div>
+                    <div class="text-center iransansbold" style="width: 20%">بخش مورد ارزیابی</div>
+                    <div class="text-center iransansbold" style="width: 15%">عملیات</div>
+                </div>
+                <div class="contentsTbl flex-column d-flex mx-2" style="min-width: 1070px">
+                    <div class="contents-row d-flex row bg-white" data-ng-repeat="row in chekLists track by $index">
+                        <div class="align-self-center text-center iransansbold" style="width: 5%">
+                            {{$index+1}}
+                        </div>
+                        <div class="align-self-center text-center iransansbold" style="width: 30%">
+                            {{row.title}}
+                        </div>
+                        <div class="align-self-center text-center iransansbold" style="width: 30%">
+                            {{row.mehvar}}
+                        </div>
+                        <div class="align-self-center text-center iransansbold" style="width: 20%">
+                            <button data-ng-if="row.wards.length" class="btn btn-link"
+                                    data-uib-popover-template="'wardsList'" data-popover-trigger="'mouseenter'">
+                                <img src="" data-ng-src="{{BASE}}/asset/images/WardIcon.png" style="width: 3em">
+                            </button>
+                        </div>
+                        <div class="align-self-center text-center iransansbold" style="width: 15%">
+                            <div class="btn_wrapper">
+                                <button class=" btn btn-link " data-ng-click="editCheckList(row)" data-tooltip="" data-title="ویرایش"><img src="#" data-ng-src="{{BASE}}/asset/images/edit.png" width="40" height="40" /> </button>
+                                <button class=" btn-link btn " data-ng-click="deleteCheckList(row)" data-tooltip="" data-title="حذف"><img src="#" data-ng-src="{{BASE}}/asset/images/delete.svg" width="40" height="40" /> </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- <div class="d-flex visits-axis-items">
+            <div class="p-1 white-box box_shadow radius" data-ng-repeat="row in chekLists" style="max-width: 200px;min-width: 200px;">
+                <div class="visits-axis-title">
+                 &lt;!&ndash;   <i class="icon"></i>&ndash;&gt;
+                    <span class="text-center center-block text-white" style="bottom: 44px;">{{row.mehvar}}</span>
+                </div>
+                <div class="white-box bordered visits-axis-data">
+                    <label class="center-block input_wrapper text-center text-green2">
+                       <span>{{get_date(row.created_at)}}</span>
+                        <i class="icon-font icon-taghvim_jalasat pull-left text-green2" style="left: 5px !important;right: auto;font-size: 1.7em;top: 5px;"></i>
+                    </label>
+                </div>
+                <button class="center-block btn-blue btn no-icon visits-axis-btn" data-ng-click="editCheckList(row)">ویرایش چک لیست</button>
+            </div>
+        </div>-->
+    </div>
+    <br>
+    <div class="row" data-ng-if="config_set">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="white-box box_shadow radius">
+                <div class="step-process-checklist ">
+                    <ul class="list-unstyled d-flex space-around step-safetyTeam-checklist">
+                        <li data-ng-class="{'active':is_active_step(0) && !is_active_step(1) && !is_active_step(2)}">
+                            <div class="content-item circle box_shadow">
+                                <div class="content-item-in circle"></div>
+                            </div>
+                            <div class="next-step-icon circle">
+                                <i class="fa " aria-hidden="true" data-ng-class="is_active_step(1)?'fa-check':'fa-caret-left'"></i>
+                            </div>
+                            <div class="step-title">
+                                <div class="step-title-in text-white">سوالات بازدید</div>
+                            </div>
+                        </li>
+                        <li data-ng-class="{'active':is_active_step(0) && is_active_step(1) && !is_active_step(2)}">
+                            <div class="content-item circle box_shadow">
+                                <div class="content-item-in circle"></div>
+                            </div>
+                            <div class="next-step-icon circle">
+                                <i class="fa " aria-hidden="true" data-ng-class="is_active_step(2)?'fa-check':'fa-caret-left'"></i>
+                            </div>
+                            <div class="step-title">
+                                <div class="step-title-in text-white">تعیین مقادیر امتیازات</div>
+                            </div>
+                        </li>
+                        <li data-ng-class="{'active':is_active_step(0) && is_active_step(1) && is_active_step(2)}">
+                            <div class="content-item circle box_shadow">
+                                <div class="content-item-in circle"></div>
+                            </div>
+                            <!--<div class="next-step-icon circle">
+                                <i class="fa " aria-hidden="true" data-ng-class="is_active_step(3)?'fa-check':'fa-caret-left'"></i>
+                            </div>-->
+                            <div class="step-title">
+                                <div class="step-title-in text-white">مشاهده و ثبت نهایی</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="animate-switch-container container" style="min-height: 500px" data-ng-switch on="CurrentStep" data-ng-class="{'forward': !direction, 'backward':direction}">
+                <div class="st1 animate-switch" data-ng-switch-default>
+                    <div class="white-box box_shadow radius step1-safetyTeam-hr" style="margin: auto -25px"></div>
+                    <br>
+                    <div class="step1-safetyTeam-content">
+                        <div class="d-flex">
+                            <div class="p-1">
+                                <div class="input-checklist white-box bordered box_shadow text-center orange_bg">
+                                    <div class="input-checklist-icon">
+                                        <i class="icon-font icon-number"></i>
+                                        <span>عنوان چک لیست</span>
+                                    </div>
+                                    <input type="text" class="text-center center-block white-box radius" data-ng-model="psuc.checklist.title">
+                                </div>
+                            </div>
+                            <div class="p-1">
+
+                                <div class="selected_select2_wrapper input-checklist white-box bordered box_shadow text-center light_green_bg">
+                                    <div class="input-checklist-icon">
+                                        <i class="icon-font icon-number"></i>
+                                        <span>محور ارزیابی</span>
+                                    </div>
+                                    <label class="inline-div" style="width: 320px;">
+                                        <select data-ui-select2="" data-placeholder="انتخاب محور ارزیابی" data-ng-model="psuc.checklist.mehvar" class="full_width ">
+                                            <option value=""></option>
+                                            <option data-ng-repeat="itm in mehvarha" value="{{itm}}">{{itm}}</option>
+
+                                        </select>
+
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-modern-btn">
+                            <div class="modern_btn5_wrapper" style="max-width: 625px;">
+                                <div class="text-blue" style="width: 620px;">
+                                    <label class="col-label-2 pull-right" style="padding-top: 12px;">آیا چک لیست مورد نظر از اجزای مختلفی تشکیل شده است؟</label>
+                                    <div class="btn_wrapper">
+                                        <div class="btn-group toggel_btn custom-btn-group" data-toggle="buttons">
+                                            <label class="btn btn-blue mini" data-ng-model="psuc.checklist.has_components" data-uib-btn-radio="true">بله</label>
+                                            <label class="btn btn-blue mini" data-ng-model="psuc.checklist.has_components" data-uib-btn-radio="false">خیر</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p class="text-center">مقادیر امتیازدهی از منفی به مثبت تعریف شود.</p>
+                        <br>
+                        <div class="row" data-ng-if="psuc.checklist.has_components">
+                            <div class="table-responsive table-custom2 teble-even-row-blue box_shadow" >
+                                <table class="table no_margin not-bordered-table">
+                                    <thead>
+                                    <tr>
+                                        <th>ردیف</th>
+                                        <th>تعریف اجزای چک لیست</th>
+                                        <th>نوع امتیازدهی</th>
+                                        <th>تعیین مقادیر امتیاز</th>
+                                        <th>عملیات</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr data-ng-repeat="row in psuc.checklist.components track by $index">
+                                        <td>{{$index+1}}</td>
+                                        <td>
+                                            <div class="white-box bordered">
+                                                <label class="input_wrapper">
+                                                    <input type="text" data-ng-model="row.description">
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+
+                                            <label data-ng-if="CurrentStep==0" class="white-box bordered selected_select2_wrapper no_padding full_width" style="max-width: 200px;">
+                                                <select data-ui-select2="" data-placeholder="نوع امتیاز دهی" data-ng-model="row.rate_type" class="full_width ">
+                                                    <option value=""></option>
+                                                    <option value="کیفی">کیفی</option>
+                                                    <option value="دوسطحی">دوسطحی</option>
+                                                    <option value="عددی">عددی</option>
+                                                    <option value="درصدی">درصدی</option>
+                                                </select>
+                                            </label>
+
+                                        </td>
+                                        <td>
+                                            <button class="btn fa-2x no_padding btn-link text-blue" data-ng-click="setRates(row)">
+                                                <i class="fa fa-plus-square fa-2x"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-link" data-ng-click="psuc.checklist.components.splice($index,1)">
+                                                <img src="" data-ng-src="{{BASE}}/asset/images/delete.svg" width="40" >
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br>
+                            <button class="btn btn-blue center-block no-icon" data-ng-click="addComponet()">افزودن سطر به جدول</button>
+                        </div>
+
+                        <br>
+                        <div class="row" data-ng-if="!psuc.checklist.has_components">
+                            <div class="d-flex" style="max-width: 500px;text-align: center;margin: auto;">
+                                <label class="col-label">انتخاب نوع امتیاز دهی</label>
+                                <label data-ng-if="CurrentStep==0" class="white-box bordered selected_select2_wrapper no_padding full_width" style="max-width: 230px;">
+                                    <select data-ui-select2="" data-placeholder="نوع امتیاز دهی" data-ng-model="psuc.checklist.score_type" class="full_width " data-ng-change="changeScoreType()">
+                                        <option value=""></option>
+                                        <option value="کیفی">کیفی</option>
+                                        <option value="دوسطحی">دوسطحی</option>
+                                        <option value="عددی">عددی</option>
+                                        <option value="درصدی">درصدی</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <br>
+                            <div class="col-xs-12 col-sm-12 col-md-10 col-md-pull-1">
+                                <div class="table-responsive table-custom2 teble-even-row-blue box_shadow">
+                                    <table class="table no_margin not-bordered-table">
+                                        <thead>
+                                        <tr>
+                                            <th>مقادیر امتیاز</th>
+                                            <th>راهنمای پاسخ دهی</th>
+                                            <th data-ng-if="psuc.checklist.score_type!='دوسطحی'">عملیات</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr data-ng-repeat="row in psuc.checklist.guides">
+                                            <td>
+                                                <input type="text" data-ng-model="row.value" class="white-box box_shadow" data-ng-if="psuc.checklist.score_type!=='عددی'">
+                                                <input type="text" data-ng-model="row.value" class="white-box box_shadow" data-ng-if="psuc.checklist.score_type=='عددی'" data-only-digits="">
+                                            </td>
+                                            <td><input type="text" data-ng-model="row.guide" class="white-box box_shadow"></td>
+                                            <td data-ng-if="psuc.checklist.score_type!='دوسطحی'">
+                                              <button class="btn btn-link text-red" data-ng-click="psuc.checklist.guides.splice($index,1)">
+                                                  <img src="" data-ng-src="{{BASE}}/asset/images/delete.svg" width="40" >
+                                              </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-ng-if="psuc.checklist.score_type!='دوسطحی'">
+                                            <td class="plus-td"><button data-ng-click="addGuide()"><i class="fa  fa-plus-circle" aria-hidden="true"></i></button></td>
+                                            <td></td>
+                                            <td ></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                    <br>
+                    <div class="full_width FMEa_modal">
+                    <label class="col-label">انتخاب بخش ها:</label>
+                            <div class="no_margin full_width custom-multiple-property selected_select2_wrapper inline_select white-box custom__border-wrapper box_shadow bordered left-arrow textSelection2-toRight">
+                                <select multiple="" data-ui-select2="" data-placeholder="  انتخاب بخش ها " data-ng-model="psuc.checklist.wards" class="full_width js-example-basic-single js-states form-control test__wrapper">
+                                    <option value=""></option>
+                                    <option data-ng-repeat="row in wards" value="{{row._id}}">{{row.name}}</option>
+                                </select>
+                            </div>
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="btn_wrapper">
+                        <button class="btn btn-blue no-icon" data-ng-click="saveChackList(true)">ثبت موقت</button>
+                        <button class="btn btn-blue no-icon" data-ng-click="next(1)">مرحله بعدی</button>
+                    </div>
+                </div>
+                <div class="st2 animate-switch" data-ng-switch-when="1">
+                    <div class="white-box box_shadow radius step2-safetyTeam-hr" style="margin: auto -25px"></div>
+                    <br>
+                    <div class="btn_wrapper" data-ng-if="psuc.checklist.has_components">
+                        <div class="btn-group toggel_btn custom-btn-group" data-toggle="buttons" >
+                            <label class="btn btn-blue" data-ng-repeat="row in psuc.checklist.components track by $index" data-ng-model="psuc.selectedComponentForQ" data-ng-click="SelectThisComponent()"  data-uib-btn-radio="row.description" >{{row.description}}</label>
+                        </div>
+
+                    </div>
+                    <br>
+                    <ul class="list-unstyled list_table5" data-ng-hide="psuc.checklist.has_components && !psuc.selectedComponentForQ">
+                        <li  data-ng-repeat="row in questiosOfCheckList[psuc.selectedComponentForQ]">
+                            <span class="row_number ng-binding">{{$index+1}}</span>
+                            <div class="arrow_wrapper">
+                                <div class="arrow_left">
+                                    <label class="checkbox circle center-block" data-ng-class="{'checked_checkbox':!row.checked}"><input type="checkbox" data-ng-model="row.checked" class="hidden"></label>
+                                </div>
+                            </div>
+                            <div class="white-box bordered input_wrap">
+                                <label class="input_wrapper">
+                                    <input type="text" data-ng-model="row.body" class="not-bordered" placeholder="سوال را وارد کنید." >
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                    <br>
+                    <button class="btn btn-blue center-block no-icon" data-ng-click="addQuestionToCh()">افزودن سطر به چک لیست</button>
+                    <br>
+                    <div class="btn_wrapper">
+                        <button class="btn btn-blue no-icon" data-ng-click="last(1)" style="font-size: .9em">بازگشت به قبل</button>
+                        <button class="btn btn-blue no-icon" data-ng-click="saveChackList(true)">ثبت موقت</button>
+                        <button class="btn btn-blue no-icon" data-ng-click="next(2)">مرحله بعدی</button>
+                    </div>
+                </div>
+                <div class="st3 animate-switch" data-ng-switch-when="2" >
+                <div class="white-box box_shadow radius step3-safetyTeam-hr" style="margin: auto -25px"></div>
+                <br>
+                <div class="step3-safetyTeam-content">
+                    <div class="step1-safetyTeam-content">
+                        <div class="d-flex">
+                            <div class="p-1">
+                                <div class="input-checklist white-box bordered box_shadow text-center orange_bg">
+                                    <div class="input-checklist-icon">
+                                        <i class="icon-font icon-number"></i>
+                                        <span>عنوان چک لیست</span>
+                                    </div>
+                                    <input type="text" class="text-center center-block white-box radius" data-ng-model="psuc.checklist.title">
+                                </div>
+                            </div>
+                            <div class="p-1">
+
+                                <div class="selected_select2_wrapper input-checklist white-box bordered box_shadow text-center light_green_bg">
+                                    <div class="input-checklist-icon">
+                                        <i class="icon-font icon-number"></i>
+                                        <span>محور ارزیابی</span>
+                                    </div>
+                                    <label class="inline-div" style="width: 320px;">
+                                        <select data-ui-select2="" data-placeholder="انتخاب محور ارزیابی" data-ng-model="psuc.checklist.mehvar" class="full_width ">
+                                            <option value=""></option>
+                                            <option data-ng-repeat="itm in mehvarha" value="{{itm}}">{{itm}}</option>
+
+                                        </select>
+
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-10 col-md-pull-1" data-ng-if="psuc.checklist.has_components">
+                            <div class="ps-visits-table d-flex" data-ng-repeat="table in psuc.checklist.components">
+                                <ul class="list-unstyled list_table10 p-1" >
+                                    <li class="d-flex table-title" >
+                                        <div class="p-1 text-center text-lalezar">ردیف</div>
+                                        <div class="p-6 text-center text-lalezar">موارد مورد بررسی (سوالات)</div>
+                                        <div class="p-1 text-center text-lalezar" data-ng-repeat="rate in table.rates">{{rate.value}}</div>
+                                    </li>
+                                    <li class="d-flex table-row" data-ng-repeat="row in questiosOfCheckList[table.description] | filter_by:'checked':true">
+                                        <div class="p-1">
+                                            <div class="table-row-1 box_shadow text-center" style="line-height: 2.2em;">{{$index+1}}</div>
+                                        </div>
+                                        <div class="p-6">
+                                            <div class="table-row-2 box_shadow"> <input type="text" data-ng-model="row.body" class="not-bordered transparent_bg" placeholder="سوال را وارد کنید." style="width: 100%;line-height: 2em;padding: 1px 5px;"></div>
+                                        </div>
+                                        <div class="p-1" data-ng-repeat="rate in table.rates" >
+                                            <div class="table-row-1 box_shadow"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="box_shadow radius ps-visits-table_title">
+                                    <span class="text-lalezar text-center center-block">{{table.description}}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-10 col-md-pull-1" data-ng-if="!psuc.checklist.has_components">
+                            <div class="ps-visits-table d-flex">
+                                <ul class="list-unstyled list_table10 p-1" >
+                                    <li class="d-flex table-title" >
+                                        <div class="p-1 text-center text-lalezar">ردیف</div>
+                                        <div class="p-6 text-center text-lalezar">موارد مورد بررسی (سوالات)</div>
+                                        <div class="p-1 text-center text-lalezar" data-ng-repeat="rate in psuc.checklist.guides">{{rate.value}}</div>
+                                    </li>
+                                    <li class="d-flex table-row" data-ng-repeat="row in questiosOfCheckList['NoComponent'] | filter_by:'checked':true">
+                                        <div class="p-1">
+                                            <div class="table-row-1 box_shadow text-center" style="line-height: 2.2em;">{{$index+1}}</div>
+                                        </div>
+                                        <div class="p-6">
+                                            <div class="table-row-2 box_shadow"> <input type="text" data-ng-model="row.body" class="not-bordered transparent_bg" placeholder="سوال را وارد کنید." style="width: 100%;line-height: 2em;padding: 1px 5px;"></div>
+                                        </div>
+                                        <div class="p-1" data-ng-repeat="rate in psuc.checklist.guides">
+                                            <div class="table-row-1 box_shadow"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="btn_wrapper">
+                    <button class="btn btn-blue no-icon" data-ng-click="last(2)" style="font-size: .9em">بازگشت به قبل</button>
+                    <button class="btn btn-blue no-icon" data-ng-click="saveChackList()">ثبت نهایی</button>
+
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<br>
+<br>
+<script type="text/ng-template" id="setRate.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="close_modal()">&times;</button>
+        <p class="modal-title text-center" >
+           تعیین مقادیر امتیاز
+        </p>
+    </div>
+    <div class="modal-body">
+        <div class="table-responsive table-custom2 teble-even-row-blue box_shadow" >
+            <table class="table no_margin not-bordered-table">
+                <thead>
+                <tr>
+                    <th>مقادیر امتیاز</th>
+                    <th>راهنما</th>
+                    <th data-ng-if="selectedComponent.rate_type!=='دوسطحی'">عملیات</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="row in selectedComponent.rates track by $index">
+                    <td>
+                        <input type="text" data-ng-model="row.value" class="white-box box_shadow" data-ng-if=" selectedComponent.rate_type!=='عددی'">
+                        <input type="text" data-ng-model="row.value" class="white-box box_shadow" data-ng-if=" selectedComponent.rate_type=='عددی'" data-only-digits="">
+                    </td>
+                    <td>
+                        <input type="text" class="white-box box_shadow" data-ng-model="row.guide">
+                    </td>
+                    <td data-ng-if="selectedComponent.rate_type!=='دوسطحی'">
+                        <button class="btn btn-link" data-ng-click="selectedComponent.rates.splice($index,1);" data-tooltip="" data-placement="top" data-title="حذف"><img src="" data-ng-src="{{BASE}}/asset/images/delete.svg" width="40" ></button>
+                    </td>
+                </tr>
+                <tr data-ng-if="selectedComponent.rate_type!=='دوسطحی'">
+                    <td class="plus-td"><button data-ng-click="addRate()" class="pull-right"><i class="fa  fa-plus-circle" aria-hidden="true"></i></button></td>
+                    <td></td>
+                    <td data-ng-if="selectedComponent.rate_type!=='دوسطحی'"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <br>
+        <div class="btn_wrapper">
+            <button class="btn btn-blue no-icon" data-ng-click="setRate()">ثبت</button>
+            <button class="btn btn-blue no-icon" data-ng-click="close_modal()">انصراف</button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="wardsList">
+    <ul class="list-unstyled">
+        <li data-ng-repeat="ward in row.wards  track by $index"
+            class="text-center my-4 text-bold">{{get_ward_name(ward,wards)}}
+        </li>
+    </ul>
+</script>

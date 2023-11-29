@@ -1,0 +1,50 @@
+@import "config";
+
+.boxshadow {
+  @include box-shadow(0px 0px 4px 1px #ccc);
+  @include border-radius(8px);
+}
+
+.inputCkeckList{
+  width: 100%;
+}
+.checkListHeader{
+  @include border-radius(8px);
+}
+.checkListBody{
+
+}
+.Define-questions{
+  margin-top: 10px;
+  input{
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    @include box-shadow(0px 0px 4px 1px #ccc);
+  }
+  div[class*='control']{
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 1px solid #b6b6b6;
+  @include box-shadow(0px 0px 4px 1px #ccc);
+  input{
+    box-shadow: none;
+  }
+}
+}
+.titleVlaue{
+  width: 9em;
+  position: relative;
+  top: 18px;
+  right: 32px;
+}
+
+
+.circleButton{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  &:focus {outline:0;}
+}

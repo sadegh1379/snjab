@@ -1,0 +1,34 @@
+
+
+.second-step{
+
+    .step-content{
+
+      .custom-select-box{
+        select{
+          @include box-shadow(0px 0px 4px 1px $gray);
+          padding: 5px;
+          font-size: 16px;
+          background: url("../images/arrow.png") no-repeat right white;
+          background-position-x: 10px;
+          -webkit-appearance:none;
+          -moz-appearance:none;
+          appearance:none;
+        }
+      }
+
+      .btn-group{
+        direction: ltr;
+        button:first-child{
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+        }
+        button:last-child{
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+      }
+
+    }
+
+}

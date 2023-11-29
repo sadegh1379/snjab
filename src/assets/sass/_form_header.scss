@@ -1,0 +1,44 @@
+@import "config";
+
+.stepWrapper{
+  @include box-shadow(0px 0px 4px 1px $gray);
+  @include border-radius(10px);
+}
+.steps{
+  button{
+    width: 3em;
+    height: 3em;
+  }
+  .step-name{
+    @include transition(.3s);
+    span, i, svg{
+      color: white;
+    }
+    span{
+      font-size: 1.4em;
+    }
+    &.active{
+      >div{
+        margin-bottom:10px ;
+      }
+      &:after{
+        @include triangle3eq('bottom',white,1em);
+        position: absolute;
+          top:0;
+        right: 0;
+        left: 0;
+        margin: auto;
+          z-index: 0;
+      }
+    }
+  }
+
+  @media only screen and(max-width: 1290px) {
+    .step-name{
+      span{
+        font-size: 1em;
+      }
+    }
+  }
+}
+

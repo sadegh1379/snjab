@@ -1,0 +1,623 @@
+// --[ CSS Config ]--
+@function opposite-position($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+          'top':    'bottom',
+          'right':  'left',
+          'bottom': 'top',
+          'left':   'right',
+          'center': 'center',
+          'ltr':    'rtl',
+          'rtl':    'ltr'
+  );
+
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+
+    @if map-has-key($direction-map, $direction) {
+      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+    } @else {
+      @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+    }
+  }
+
+  @return $opposite-directions;
+}
+/* --[ Start Color Variable ]-- */
+$lightGrey:#DEDCDD;
+$lighGreen:#D7ECCB;
+$primeryColor: #104c82;
+$DarkGreen:#317B08;
+$navy-blue: rgb(12,129,197);
+$purple: rgb(111,95,196);
+$pink: rgb(241,79,118);
+$dark-orange: rgb(243,136,35);
+$light-green: rgb(182,220,41);
+$primeryColor: #104c82;
+$secondaryColor: #104c82;
+$blue: #104c82;
+$dark: #5e5e5f;
+$gray:#ccc;
+$darkGray:#aaa;
+$lightGray:#eee;
+$Darkpurple:#A747F9;
+$bluecolor:#8BA1E3;
+$lightBlue:#2FCFC7;
+$orange:#FF6600;
+$green:#34C067;
+$green2:#32b7a3;
+$custom-light-green: #28d007;
+$green2_shadow:#2f9693;
+$green3:#2b6072;
+$green4:#92c020;
+$Lightpurple:#BB66BC;
+$Graye:#5F5F5F;
+$navy-blue: rgb(12,129,197);
+$purple: rgb(111,95,196);
+$pink: rgb(241,79,118);
+$dark-orange: rgb(243,136,35);
+$light-green: rgb(182,220,41);
+$dark-green: rgb(50,183,162);
+$light-pink: rgb(255,251,250);
+$blue3:#dbebf8;
+$browncolor:#A24A10;
+$green5: #189c2c;
+$white: #fff;
+$red_shadow:#c93253;
+$red_dark: #b62d27;
+$dark_red:#7f0202;
+$light_red: rgba(251, 2, 2, 0.1);
+$red:#fb0202;
+$orange-dark: #c84200;
+$orange2:#ea8b47;
+$orange3: #d57c42;
+$orange2_light: #ffb67b;
+$light_orange: rgba(255, 81, 0, 0.1);
+$light_yellow: rgba(255, 213, 2, 0.1);
+$yellow2:#decb00;
+$yellow2_light: #ded24b;
+$yellow2_shadow:#f1b530;
+
+$lighteerBlue-questionnaire:#D6EDFF;
+// $egg:#f39c12;
+$egg:#fbc531;
+/*--------------------------------------------------------*/
+/*----------            <- Violet ->            ----------*/
+$violet:#c62bfc;
+$violet_shadow: #a12fde;
+$dark_violet: #3a3144;
+$violet2:#9a59b5;
+$violet_rgb: rgba(154,89,181,0.22);
+/*--------------------------------------------------------*/
+
+/*----------             <- Brown ->            ----------*/
+$brown:#b45a33;
+$brown_shadow: #8d4a28;
+$light_brown: #BD8931;
+$light_brown2: #E7DBC3;
+/*--------------------------------------------------------*/
+
+/*----------             <- Pink ->             ----------*/
+$pink_light:#fb7794;
+$pink:#d8659b;
+$pink_shadow: #f70264;
+/*--------------------------------------------------------*/
+
+/*----------            <- Purple ->            ----------*/
+$Deep_Purple:#5e7cdd;
+
+$array_of_color:#f00,#ffbb18,#0063d1,#2f9693,#ea8b47,#c62bfc,#b45a33,#f70264,#5e7cdd,#02ccf7,#92c020,#c93253,#ffb67b,#9a59b5,#8d4a28,#d8659b;
+
+
+/* --[ End Color Variable ]-- */
+
+/* --[ Start fonts Variable ]-- */
+$iran-sans:'IRANSansWeb';
+$iran-sans_Bold:'iransansBold';
+$AILERONS-TYPEFACE: 'AILERONS-TYPEFACE';
+$lalezar: 'lalezar';
+$nazanin:'nazanin';
+$nastealigh:'IranNastaliq';
+@font-face {
+  font-family: ghoticregular;
+  src:url('../font/CenturyGothicRegular.ttf') format("truetype");
+}
+@font-face {
+  font-family: IRANSansWeb;
+  src: url('../font/IRANSansWeb.eot'),
+  url('../font/IRANSansWeb.woff') format('woff'),
+  url('../font/IRANSansWeb.ttf') format("truetype");
+}
+@font-face {
+  font-family: iransansBold;
+  src: url('../font/IRANSansWeb_Bold.eot?#') format("eot"),
+  url('../font/IRANSansWeb_Bold.woff') format("woff"),
+  url('../font/IRANSansWeb_Bold.ttf') format("truetype");
+}
+@font-face {
+  font-family: Lalezar;
+  src: url('../font/Lalezar.eot'),
+  url('../font/Lalezar.woff') format('woff'),
+  url('../font/Lalezar.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../font/icomoon.eot?9y706j');
+  src:  url('../font/icomoon.eot?9y706j#iefix') format('embedded-opentype'),
+  url('../font/icomoon.ttf?9y706j') format('truetype'),
+  url('../font/icomoon.woff?9y706j') format('woff'),
+  url('../font/icomoon.svg?9y706j#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --[ End fonts Variable ]-- */
+
+/* --[ Start Mixins ]-- */
+@mixin border-radius($radius...) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin text-shadow($shadow...){
+  text-shadow:$shadow;
+  -moz-text-shadow:$shadow;
+  -ms-text-shadow:$shadow;
+  -o-text-shadow:$shadow;
+  -webkit-text-shadow:$shadow;
+}
+/*--------------------------------------------------------*/
+/*----------          Transform Effect          ----------*/
+/*--------------------------------------------------------*/
+@mixin transform-scale($scale...){
+  transform: scale($scale);
+  -moz-transform: scale($scale);
+  -ms-transform: scale($scale);
+  -o-transform: scale($scale);
+  -webkit-transform: scale($scale);
+}
+@mixin transform($transform...){
+  transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform:$transform;
+  -o-transform: $transform;
+  -webkit-transform: $transform;
+}
+@mixin transform-rotate($rotate:45deg) {
+  -webkit-transform:rotate($rotate);
+  -moz-transform:rotate($rotate);
+  -o-transform:rotate($rotate);
+  transform:rotate($rotate);
+}
+@mixin transform-translate-rotate($translate,$rotate){
+  -webkit-transform: $translate $rotate;
+  -moz-transform: $translate $rotate;
+  -ms-transform: $translate $rotate;
+  -o-transform: $translate $rotate;
+  transform: $translate $rotate;
+}
+
+/*--------------------------------------------------------*/
+/*--------------------------------------------------------*/
+@mixin box-shadow($shadow...){
+  box-shadow:$shadow;
+  -moz-box-shadow:$shadow;
+  -ms-box-shadow:$shadow;
+  -o-box-shadow:$shadow;
+  -webkit-box-shadow:$shadow;
+}
+@mixin linear-gradient($param...){
+  background-image: linear-gradient($param) !important;
+  background-image: -moz-linear-gradient($param) !important;
+  background-image: -webkit-linear-gradient($param) !important;
+  background-image: -o-linear-gradient($param) !important;
+  background-image: -ms-linear-gradient($param) !important;
+}
+@mixin linear-gradient-whit-backImage($param,$param2){
+  background-image: $param , linear-gradient($param2) !important;
+  background-image: $param , -moz-linear-gradient($param2) !important;
+  background-image: $param , -webkit-linear-gradient($param2) !important;
+  background-image: $param , -o-linear-gradient($param2) !important;
+  background-image: $param , -ms-linear-gradient($param2) !important;
+}
+@mixin background-img ($img-url,$bg-repeat:no-repeat,$bg-attachment:center,$bg-position:center,$bg-size:cover) {
+  background: url($img-url) $bg-repeat $bg-attachment $bg-position;
+  -webkit-background-size: $bg-size;
+  -moz-background-size: $bg-size;
+  -o-background-size: $bg-size;
+  background-size: $bg-size;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+@mixin placeholder_for_this {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    @include border-radius(100px);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+    @include border-radius(100px);
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@function _is-color($color) {
+  @return (type-of($color) == color) or ($color == "currentColor");
+}
+/*------------------------------------------------------*/
+/*----------          Triangle Shape          ----------*/
+/*------------------------------------------------------*/
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size * 1.5) solid $color;
+
+  $perpendicular-borders: $size solid transparent;
+
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
+@mixin triangle_2($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size * .5) solid $color;
+
+  $perpendicular-borders: $size solid transparent;
+
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
+@mixin triangle_2_stretch($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size * 2) solid $color;
+
+  $perpendicular-borders: $size solid transparent;
+
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
+@mixin triangle3eq($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size) solid $color;
+
+  $perpendicular-borders: $size solid transparent;
+
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
+@mixin _triangle($direction, $width,$height,$color) {
+  @if not index(
+    "up" "up-right" "right" "down-right" "down" "down-left" "left" "up-left",
+    $direction
+  ) {
+    @error "Direction must be `up`, `up-right`, `right`, `down-right`, " +
+           "`down`, `down-left`, `left` or `up-left`.";
+  } @else if not _is-color($color) {
+    @error "`#{$color}` is not a valid color for the `$color` argument in " +
+           "the `triangle` mixin.";
+  } @else {
+    border-style: solid;
+    height: 0;
+    width: 0;
+
+    @if $direction == "up" {
+      border-color: transparent transparent $color;
+      border-width: 0 ($width / 2) $height;
+    } @else if $direction == "up-right" {
+      border-color: transparent $color transparent transparent;
+      border-width: 0 $width $width 0;
+    } @else if $direction == "right" {
+      border-color: transparent transparent transparent $color;
+      border-width: ($height / 2) 0 ($height / 2) $width;
+    } @else if $direction == "down-right" {
+      border-color: transparent transparent $color;
+      border-width: 0 0 $width $width;
+    } @else if $direction == "down" {
+      border-color: $color transparent transparent;
+      border-width: $height ($width / 2) 0;
+    } @else if $direction == "down-left" {
+      border-color: transparent transparent transparent $color;
+      border-width: $width 0 0 $width;
+    } @else if $direction == "left" {
+      border-color: transparent $color transparent transparent;
+      border-width: ($height / 2) $width ($height / 2) 0;
+    } @else if $direction == "up-left" {
+      border-color: $color transparent transparent;
+      border-width: $width $width 0 0;
+    }
+  }
+}
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+@mixin filter($f) {
+  filter: $f;
+  -webkit-filter: $f;
+  -moz-filter: $f;
+}
+/*---------------------------------------------------------*/
+/*----------          Transition Effect          ----------*/
+/*---------------------------------------------------------*/
+@mixin transition_ease-in-out($time) {
+  transition: all $time ease-in-out;
+  -moz-transition: all $time ease-in-out;
+  -ms-transition: all $time ease-in-out;
+  -o-transition: all $time ease-in-out;
+  -webkit-transition: all $time ease-in-out;
+}
+@mixin transition($transition...) {
+  transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+}
+@mixin transition-property($bbox1,$bbox2,$bbox3,$bbox4,$box5){
+  -webkit-transition-property: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -moz-transition-property: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -ms-transition-property: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -o-transition-property: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  transition-property: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+}
+@mixin transition-duration ($bbox1,$bbox2,$bbox3,$bbox4,$box5){
+  -webkit-transition-duration: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -moz-transition-duration: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -ms-transition-duration: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -o-transition-duration: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  transition-duration: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+}
+@mixin transition-delay($bbox1,$bbox2,$bbox3,$bbox4,$box5){
+  -webkit-transition-delay:$bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -moz-transition-delay: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -ms-transition-delay:$bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  -o-transition-delay: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+  transition-delay: $bbox1,$bbox2,$bbox3,$bbox4,$box5;
+}
+@mixin timing-function($timing-function){
+  -webkit-transition-timing-function: $timing-function;
+  -moz-transition-timing-function: $timing-function;
+  -ms-transition-timing-function: $timing-function;
+  -o-transition-timing-function: $timing-function;
+  transition-timing-function: $timing-function;
+}
+@mixin object-fit($object-fit){
+  -o-object-fit: ($object-fit);
+  object-fit: ($object-fit);
+}
+/*---------------------------------------------------------*/
+/*---------------------------------------------------------*/
+
+/* --[ Start Media Query Mixin ]-- */
+
+/* --[ A map of breakpoints. ]-- */
+$breakpoints: (
+        mobile-xs: 320px,
+        mobile-xs-wide: 350px,
+        mobile-sm: 480px,
+        mobile-lg: 520px,
+        tablet-xs: 576px,
+        tablet-sm: 600px,
+        tablet-md: 768px,
+        tablet-lg: 920px,
+        desktop-xs: 992px,
+        desktop-sm: 1024px,
+        desktop-md: 1200px,
+        desktop-lg: 1360px,
+        desktop-xlg: 1480px
+);
+
+/* --[ RESPOND ABOVE ]-- */
+
+/* --[ @include respond-above(sm) {} ]-- */
+@mixin respond-above($breakpoint) {
+
+  /* --[ If the breakpoint exists in the map. ]-- */
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    /* --[ Get the breakpoint value. ]-- */
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    /* --[ Write the media query. ]-- */
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+
+    /* --[ If the breakpoint doesn't exist in the map. ]-- */
+  } @else {
+
+    /* --[ Log a warning ]-- */
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+/* --[ RESPOND BELOW ]-- */
+
+/* --[ @include respond-below(sm) {} ]-- */
+@mixin respond-below($breakpoint) {
+
+  /* --[ If the breakpoint exists in the map. ]-- */
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    /* --[ Get the breakpoint value. ]-- */
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    /* --[ Write the media query. ]-- */
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+
+    /* --[ If the breakpoint doesn't exist in the map. ]-- */
+  } @else {
+
+    /* --[ Log a warning. ]-- */
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+/* --[ RESPOND BETWEEN ]-- */
+
+/* --[ @include respond-between(sm, md) {} ]-- */
+@mixin respond-between($lower, $upper) {
+
+  /* --[ If both the lower and upper breakpoints exist in the map. ]-- */
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+
+    /* --[ Get the lower and upper breakpoints. ]-- */
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    /* --[ Write the media query. ]-- */
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+
+    /* --[ If one or both of the breakpoints don't exist. ]-- */
+  } @else {
+
+    /* --[ If lower breakpoint is invalid. ]-- */
+    @if (map-has-key($breakpoints, $lower) == false) {
+
+      /* --[ Log a warning. ]-- */
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+
+    /* --[ If upper breakpoint is invalid. ]-- */
+    @if (map-has-key($breakpoints, $upper) == false) {
+
+      /* --[ Log a warning. ]-- */
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
+@mixin transform-origin($transform-origin){
+  -webkit-transform-origin: $transform-origin;
+  -moz-transform-origin: $transform-origin;
+  -ms-transform-origin: $transform-origin;
+  -o-transform-origin: $transform-origin;
+  transform-origin: $transform-origin;
+}
+
+@mixin animation($animation){
+  -webkit-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+@mixin writing-mode($writing-mode){
+  -webkit-writing-mode: $writing-mode;
+  -ms-writing-mode: $writing-mode;
+  writing-mode: $writing-mode;
+}
+@mixin box-sizing($box-sizing){
+  -webkit-box-sizing:$box-sizing ;
+  -moz-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
+/* --[ End Media Query Mixin ]-- */
+@mixin animation($animation){
+  -webkit-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+
+@mixin n_transition($transition...) {
+  transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+}
+@mixin top_arrow_menu_child($colors,$hover) {
+  $i: 0;
+  @each $color in $colors {
+    $i: $i+1;
+    @if $hover== 1{
+      &:nth-child(#{$i}) {
+        &:hover {
+          background-color: $color;
+          border-color: $color;
+        }
+      }
+    }@else {
+      &:nth-child(#{$i}) {
+        background-color: $color;
+        border-color: $color;
+      }
+    }
+
+  }
+}
+/* --[ End Mixins ]-- */
+
+
+

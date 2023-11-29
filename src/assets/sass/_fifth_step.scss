@@ -1,0 +1,59 @@
+@import "config";
+
+
+.overflowY {
+    overflow-y:auto !important;
+
+}
+
+.overflowYX {
+    overflow-y:auto !important;
+    overflow-x:hidden;
+}
+
+.fifth-step{
+
+  
+    .step{
+      @include box-shadow(0px 0px 4px 1px $gray);
+      @include border-radius(10px);
+  
+      .step-content{
+  
+  
+  
+      }
+    }
+    /*table*/
+    .table-title{
+      background-color: $dark;
+      @include border-radius(20px);
+    }
+    .contentsTbl{
+      .RegisterSitution-0{
+        border: 1px solid red;
+        color: red;
+      }
+      .RegisterSitution-1{
+        border: 1px solid green;
+        color: green;
+      }
+      .contents-row{
+        @include box-shadow(0px 0px 4px 1px $gray);
+        @include border-radius(30px);
+        img{
+          width: 2.7em;
+        }
+      }
+      .odd-contents-row{
+        background-color: rgb(238,238,238);
+      }
+      div{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        div{
+          color: gray;
+        }
+      }
+    }
+  }

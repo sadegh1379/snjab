@@ -1,0 +1,85 @@
+@import "config";
+/*Template style*/
+.btn-blue{
+  background-color: $blue !important;
+  border: $blue !important;
+  color: white !important;
+}
+.btn-outline-blue{
+  border-color: $blue !important;
+  color: $blue !important;
+  background-color: white !important;
+  &:hover,&.active,&:focus{
+    border-color: white !important;
+    color: white !important;
+    background-color: $blue !important;
+  }
+}
+
+/*Templte style */
+
+.arrowselect{
+  background: url("../images/arrow down.png")no-repeat;
+  background-position-x:10px;
+  background-position-y: 5px;
+}
+.description{
+  position: relative;
+  top: 24px;
+  right: 34px;
+}
+
+.monitor {
+  border: 15px solid;
+  border-radius: 13px;
+  .calculation {
+    i, svg {
+      color: $darkGray;
+    }
+    .h-line {
+      height: .3em;
+      background: $darkGray;
+      border-radius: 10px;
+      max-width: 56%;
+      margin-left: 2%;
+    }
+
+    @media only screen and(max-width: 865px) {
+      .h-line {
+        max-width: 59%;
+        margin-left: -2%;
+      }
+    }
+    @media only screen and(max-width: 575px) {
+      .h-line {
+        margin-left: 8%;
+      }
+    }
+
+    .calculation-inputs {
+      @include box-shadow(0px 0px 4px 1px #2e2e2e);
+      @include border-radius(15px);
+      .rounded-underline {
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -7px;
+          height: 6px;
+          background-color: $blue;
+          width: 100%;
+          transition: width .25s;
+          border-radius: 50px;
+        }
+      }
+
+    }
+  }
+
+
+}
+.leg {
+  position: relative;
+  top: -25px;
+}

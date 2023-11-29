@@ -1,0 +1,352 @@
+.withmodal .modal-content {
+  top: 5em;
+  left: 0em;
+  right: 0em;
+  width: 90%; }
+
+.backgroundappp {
+  background-image: url("../images/login_app_bg.png");
+  height: 100vh; }
+  .backgroundappp .goback {
+    position: absolute;
+    left: 0px;
+    top: 19px;
+    background-color: #1c94e0;
+    padding: 1em;
+    border-top-right-radius: 50em;
+    border-bottom-right-radius: 50em;
+    max-height: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 66px;
+    z-index: 5; }
+    .backgroundappp .goback .arrowback {
+      font-size: 2em;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      color: #fff; }
+      .backgroundappp .goback .arrowback img {
+        width: 20px; }
+  .backgroundappp .loginpwa {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .backgroundappp .headerpwa .title {
+    font-family: "iransansBold";
+    font-size: 3rem;
+    color: #626568;
+    display: inline-block; }
+  .backgroundappp .headerpwa .text {
+    background-color: #1c94e0;
+    border-radius: 50em;
+    font-size: 0.8em;
+    color: #fff; }
+  .backgroundappp .headerpwa .site_url {
+    font-family: ghoticregular;
+    font-size: 1em; }
+  .backgroundappp .swipe-pwa .title-pwa {
+    background-color: #1c94e0;
+    padding: 16px 0;
+    box-sizing: border-box;
+    color: white;
+    min-height: 50px;
+    font-size: 1.2em;
+    text-align: center;
+    flex: 1; }
+  .backgroundappp .swipe-pwa .content {
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #1c94e0;
+    font-size: 18px;
+    min-height: 50vh; }
+    .backgroundappp .swipe-pwa .content .hospital {
+      font-size: 0.8em; }
+      .backgroundappp .swipe-pwa .content .hospital .css-151xaom-placeholder {
+        font-size: 0.8em;
+        font-family: iransansweb; }
+      .backgroundappp .swipe-pwa .content .hospital .css-dvua67-singleValue {
+        font-size: 0.8em !important; }
+      .backgroundappp .swipe-pwa .content .hospital .css-fk865s-option {
+        font-size: 0.8em; }
+    .backgroundappp .swipe-pwa .content .title {
+      color: #fff;
+      text-align: center;
+      font-size: 0.9em; }
+    .backgroundappp .swipe-pwa .content .alarm {
+      font-size: 0.8em;
+      position: fixed;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      right: 0;
+      left: 0; }
+    @media (max-width: 330px) {
+      .backgroundappp .swipe-pwa .content .alarm {
+        font-size: 0.7em;
+        position: fixed;
+        bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        right: 0;
+        left: 0; } }
+  .backgroundappp .swipe-pwa .ReactSwipeableBottomSheet--open {
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem; }
+  .backgroundappp .swipe-pwa .ReactSwipeableBottomSheet--closed {
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem; }
+  .backgroundappp .swipe-pwa .react-swipeable-view-container {
+    box-shadow: unset !important; }
+  .backgroundappp .swipe-pwa .border-select {
+    border-radius: 50em;
+    font-family: "iransansBold";
+    font-size: 0.8rem; }
+  .backgroundappp .swipe-pwa .selectpwa {
+    width: 100%;
+    padding: 0.2rem; }
+  .backgroundappp .swipe-pwa .choseitem {
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 50em;
+    padding: 1em;
+    font-size: 0.8em;
+    font-family: "iransansBold";
+    -webkit-appearance: unset;
+    width: 200px;
+    background: transparent; }
+  .backgroundappp .login .forgetpass {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 0px !important;
+    margin: 0px !important;
+    color: #fff;
+    position: relative;
+    top: 0.4em; }
+  .backgroundappp .login input[type="text"],
+  .backgroundappp .login select.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0; }
+  .backgroundappp .login input[type="text"]:focus,
+  .backgroundappp .login select.form-control:focus {
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  .backgroundappp .login .user-input-wrp {
+    position: relative; }
+    .backgroundappp .login .user-input-wrp .inputlogin {
+      padding-top: 0.3em; }
+    .backgroundappp .login .user-input-wrp .inputText {
+      width: 100%;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #fff;
+      box-shadow: none !important;
+      color: #fff;
+      background: transparent;
+      font-size: 0.8em; }
+    .backgroundappp .login .user-input-wrp .inputText:focus {
+      border-color: #fff;
+      border-width: medium medium 2px; }
+    .backgroundappp .login .user-input-wrp .floating-label-user {
+      position: absolute;
+      pointer-events: none;
+      right: 0px;
+      transition: 0.2s ease all;
+      color: #fff;
+      font-size: 0.7em; }
+    .backgroundappp .login .user-input-wrp .floating-label-pass {
+      position: absolute;
+      pointer-events: none;
+      right: 0px;
+      transition: 0.2s ease all;
+      color: #fff;
+      font-size: 0.7em; }
+    .backgroundappp .login .user-input-wrp input:focus ~ .floating-label-user,
+    .backgroundappp .login .user-input-wrp input:not(:focus):valid ~ .floating-label-user {
+      bottom: 60px;
+      right: 10px;
+      font-size: 13px;
+      opacity: 1; }
+    .backgroundappp .login .user-input-wrp input:focus ~ .floating-label-pass,
+    .backgroundappp .login .user-input-wrp input:not(:focus):valid ~ .floating-label-pass {
+      top: 45px;
+      right: 10px;
+      font-size: 13px;
+      opacity: 1; }
+  .backgroundappp .headerpwa .icons-loginpage {
+    font-size: 12px; }
+    .backgroundappp .headerpwa .icons-loginpage img {
+      width: 100%; }
+  .backgroundappp .headerpwa .text-loginpage {
+    color: #51504f;
+    font-size: 0.8em;
+    font-family: iransans; }
+
+.ui-center {
+  text-align: center; }
+
+.shourtcut-pwa .nav .ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 1em auto; }
+.shourtcut-pwa h1 {
+  margin: 1.5em;
+  font-size: 24px;
+  text-align: center; }
+.shourtcut-pwa .navbarstyleBottom {
+  height: 10vh;
+  background-color: #c8c6c7 !important;
+  box-shadow: -2px 0px 9px 1px rgba(0, 0, 0, 0.44); }
+.shourtcut-pwa .navbarstyleTop {
+  height: 10vh;
+  background-color: #e3e3e3 !important; }
+.shourtcut-pwa .carousel-container {
+  height: 80vh;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  touch-action: pan-y; }
+.shourtcut-pwa .carousel-track {
+  position: relative;
+  display: flex;
+  height: 100%; }
+.shourtcut-pwa .carousel-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  flex: 0 0 300px;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  color: white; }
+.shourtcut-pwa .carousel-card-inner {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #717171;
+  background: #fff; }
+.shourtcut-pwa .carousel-title {
+  margin-top: 20px;
+  font-size: 1.5em; }
+.shourtcut-pwa .carousel-text {
+  padding: 1em 1em 1em 2em;
+  font-size: 14px;
+  white-space: pre-wrap;
+  text-align: left;
+  font-family: sans-serif; }
+.shourtcut-pwa .carousel-pagination-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; }
+.shourtcut-pwa .carousel-pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  width: 180px;
+  padding: 0;
+  flex-direction: row-reverse; }
+.shourtcut-pwa .carousel-pagination li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(50, 50, 50, 0.5);
+  margin: 0.3em; }
+.shourtcut-pwa .carousel-pagination .current {
+  border-radius: 0;
+  background: #1b93df;
+  border-radius: 50em; }
+.shourtcut-pwa .shotcut-pwa-icon {
+  display: flex;
+  position: relative;
+  bottom: 2em;
+  width: 100%;
+  padding: 0px;
+  justify-content: center;
+  align-items: center; }
+  .shourtcut-pwa .shotcut-pwa-icon p {
+    font-family: "iransansBold";
+    font-size: 0.7em; }
+  .shourtcut-pwa .shotcut-pwa-icon img {
+    width: 60px;
+    position: relative;
+    bottom: 1em; }
+.shourtcut-pwa .bm-burger-button {
+  position: fixed;
+  width: 20px;
+  height: 18px; }
+.shourtcut-pwa .bm-burger-bars {
+  background: #777777;
+  height: 3px !important; }
+.shourtcut-pwa .bm-burger-bars-hover {
+  background: #777777; }
+.shourtcut-pwa .bm-cross-button {
+  height: 24px;
+  width: 24px; }
+.shourtcut-pwa .bm-cross {
+  background: #bdc3c7; }
+.shourtcut-pwa .bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  top: 0px; }
+.shourtcut-pwa .bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em; }
+.shourtcut-pwa .bm-morph-shape {
+  fill: #373a47; }
+.shourtcut-pwa .bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+  text-align: right; }
+.shourtcut-pwa .bm-item {
+  display: inline-block; }
+.shourtcut-pwa .bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  top: 0; }
+.shourtcut-pwa .carousel-card {
+  color: #000 !important;
+  background: #fff !important; }
+.shourtcut-pwa .itemcarousel img {
+  width: 60px; }
+.shourtcut-pwa .itemcarousel .title {
+  font-family: "iransansBold";
+  font-size: 0.7em;
+  position: relative;
+  top: 10px; }
+.shourtcut-pwa .searchpwa {
+  position: relative;
+  top: 30px;
+  height: 40px;
+  border-radius: 50em;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.44);
+  width: 280px; }
+.shourtcut-pwa .carousel-container {
+  padding: 3em 0; }
+
+/*# sourceMappingURL=pwa.css.map */

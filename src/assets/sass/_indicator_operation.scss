@@ -1,0 +1,17 @@
+
+.indicator_operation{
+
+  .operation-items{
+    .operation-item{
+      button{
+        @include border-radius(10px);
+      }
+      span{
+        color: $dark;
+      }
+    }
+
+  }
+
+
+}

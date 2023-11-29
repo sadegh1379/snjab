@@ -1,0 +1,42 @@
+.question-table{
+
+  .question-shadow{
+    box-shadow: (0px 0px 3px 2px #e5e5e5);
+  }
+  .contents{
+     .question-row{
+      background-color: $lighteerBlue-questionnaire;
+      //border-radius :5px;
+    }
+
+  }
+  .hint{
+    color: rgb(170, 170, 170);
+    font-size: 0.5vw;
+    background: transparent;
+    display: flex;
+    position: absolute;
+    transform: rotate(-45deg);
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    opacity: .9;
+  }
+
+}
+.checklistModalView{
+  z-index: 101;
+  .titleVlaue{
+    position: relative;
+    top: -40px;
+    height: 2.5em;
+    line-height: 2;
+    width: auto;
+    right: auto;
+  }
+}

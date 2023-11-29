@@ -1,0 +1,368 @@
+@import "config";
+
+.calender_wrapper{
+    display: table;
+    margin: auto;
+    max-width: 1230px;
+    .card{
+      width: 350px;
+      float: right;
+      margin: 30px;
+      position: relative;
+      border: none;
+  
+      .events{
+        margin: 5px auto;
+        font-size: .8em;
+        width: 250px;
+  
+      }
+      @media all and (max-width: 1260px) {
+        margin: 30px 5px;
+      }
+      .card-body{
+        height: 235px;
+        background-color: #fdfdfd;
+        padding: 5px 20px 0 0;
+        font-size: 0.9em;
+        ul{
+          display: block;
+          &.d-flex{
+            display: flex;
+          }
+          .days{
+            float: right;
+            font-size: .8em;
+            width: 34px;
+            margin: 0px .49em;
+            text-align: center;
+            line-height: 32px;
+            padding: 0;
+            font-family: $iran-sans_Bold;
+            &.bordered{
+              border: 1px solid;
+              @include border-radius(5px);
+            }
+            &.days-name{
+              margin: 0;
+              width: 45px;
+              line-height: 25px;
+            }
+            &.disabled,&.last_days{
+              @include box-shadow(none !important);
+            }
+            &.last_days{
+              cursor: default !important;
+            }
+  
+          }
+        }
+  
+      }
+      .card-header {
+        position: absolute;
+        width: 235px;
+        background-color: #ccc;
+        color: white;
+        transform: rotate(90deg); 
+        right: -130px;
+        top: 125px;
+        margin: -33px auto;
+        line-height: 3em;
+        font-size: 1.2em;
+        padding: 0;
+        background-repeat: repeat;
+        background-size: 26px;
+        &[class^="spring-"], &[class*="spring-"]{
+          background-image: url("../images/spring.png");
+          &.spring-1{
+            background-color: $green5;
+            + div{
+              color: $green5;
+              .days.active{
+                color: $white;
+                background-color: $green5;
+              }
+            }
+          }
+          &.spring-2{
+            background-color: $green;
+            + div{
+              color: $green;
+              .days.active{
+                color: $white;
+                background-color: $green;
+              }
+            }
+          }
+          &.spring-3{
+            background-color: $green4;
+            + div{
+              color: $green4;
+              .days.active{
+                color: $white;
+                background-color: $green4;
+              }
+            }
+          }
+        }
+        &[class^="summer-"], &[class*="summer-"]{
+          background-image: url("../images/summer.png");
+          &.summer-4{
+            background-color: $red_shadow;
+            + div{
+              color: $red_shadow;
+              .days.active{
+                color: $white;
+                background-color: $red_shadow;
+              }
+            }
+          }
+          &.summer-5{
+            background-color: $red;
+            + div{
+              color: $red;
+              .days.active{
+                color: $white;
+                background-color: $red;
+              }
+            }
+          }
+          &.summer-6{
+            background-color: $orange;
+            + div{
+              color: $orange;
+              .days.active{
+                color: $white;
+                background-color: $orange;
+              }
+            }
+          }
+        }
+        &[class^="autumn-"], &[class*="autumn-"]{
+          background-image: url("../images/autumn.png");
+          &.autumn-7{
+            background-color: $orange2;
+            + div{
+              color: $orange2;
+              .days.active{
+                color: $white;
+                background-color: $orange2;
+              }
+            }
+          }
+          &.autumn-8{
+            background-color: $orange2_light;
+            + div{
+              color: $orange2_light;
+              .days.active{
+                color: $white;
+                background-color: $orange2_light;
+              }
+            }
+          }
+          &.autumn-9{
+            background-color: $yellow2_shadow;
+            + div{
+              color: $yellow2_shadow;
+              .days.active{
+                color: $white;
+                background-color: $yellow2_shadow;
+              }
+            }
+          }
+        }
+        &[class^="winter-"], &[class*="winter-"]{
+          background-image: url("../images/winter.png");
+          &.winter-10{
+            background-color: $violet2;
+            + div{
+              color: $violet2;
+              .days.active{
+                color: $white;
+                background-color: $violet2;
+              }
+            }
+          }
+          &.winter-11{
+            background-color: $violet_shadow;
+            + div{
+              color: $violet_shadow;
+              .days.active{
+                color: $white;
+                background-color: $violet_shadow;
+              }
+            }
+          }
+          &.winter-12{
+            background-color: $violet;
+            + div{
+              color: $violet;
+              .days.active{
+                color: $white;
+                background-color: $violet;
+              }
+            }
+          }
+        }
+  
+      }
+      &:after,&:before{
+        content: '';
+        position: absolute;
+        width: 180px;
+        height: 50px;
+        bottom: -12px;
+        background-color: rgba(0, 0, 0, 0.09);
+        @include border-radius(5px);
+        z-index: -1;
+      }
+      &:after{
+        left: 25px;
+        @include transform(rotate(-4deg));
+        transform-origin: left bottom;
+      }
+      &:before{
+        right: -10px;
+        @include transform(rotate(4deg));
+        transform-origin: right bottom;
+      }
+      &.only_week{
+        width: 247px;
+        .card-body{
+          height: 138px;
+
+          .day_week{
+            position: relative;
+            height: 30px;
+            line-height: 30px;
+            span,b{
+              @include transition(.3s);
+              position: absolute;
+              left: 0;
+              top: 0;
+              right: 0;
+              margin: auto;
+              bottom: 0;
+              display: block;
+            }
+            span{
+              opacity: 1;
+              visibility: visible;
+              @include transform-scale(1);
+              font: inherit;
+            }
+            b{
+              opacity: 0;
+              visibility: hidden;
+              @include transform-scale(0);
+              font-size: .75em;
+            }
+          }
+        }
+        .card-heading{
+          width: 138px;
+          right: -88px;
+          top: 76px;
+          .date{
+            @include transform(rotate(-90deg));
+            display: block;
+            position: absolute;
+            font-size: 0.6em;
+            clear: both;
+            font-family: $iran-sans;
+            background-color: inherit;
+            height: 30px;
+            width: 52px;
+            bottom: 0;
+            line-height: 30px;
+            @include border-radius(5px);
+            font-weight: 100;
+            top: 11px;
+            &.date_from{
+              left: -32px;
+            }
+            &.date_to{
+  
+              right: -36px;
+            }
+          }
+        }
+        &:hover{
+          .card-body{
+            .day_week{
+              b{
+                opacity: 1;
+                visibility: visible;
+                @include transform-scale(1);
+              }
+              span{
+                opacity: 0;
+                visibility: hidden;
+                @include transform-scale(0);
+              }
+            }
+          }
+        }
+      }
+      .notify{
+        overflow: visible;
+        &:after{
+          content: attr(data-title);
+          width: 15px;
+          height: 15px;
+          @include border-radius(0 5px 0 15px);
+          background-color: $red;
+          position: absolute;
+          right: -1px;
+          top: -1px;
+          color: $white;
+          @include transform(rotate(0));
+          line-height: 17px;
+          font-size: 1em;
+          font-family: $iran-sans;
+          font-weight: 100;
+          padding-left: 2px;
+          opacity: 1;
+        }
+  
+      }
+      .fail{
+        &:before{
+          content: '';
+          width: 100%;
+          height: 1px;
+          @include border-radius(5px);border: 1px solid;
+          position: absolute;
+          right: 0;
+          top: 0;
+          @include transform(rotate(-45deg));
+          opacity: .5;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
+    }
+    @media all and (max-width: 1260px) {
+      min-width: 1230px;
+    }
+    .day_week{
+      padding: 5px;
+      margin: 5px;
+      min-width: 60px;
+      &.borderd{
+        border: 2px solid;
+      }
+    }
+  }
+
+
+
+.edCalendarBTN {
+    width: 150px;
+    height: 70px;
+    color: $navy-blue;
+    background-color: $white;
+    font-family: $iran-sans_Bold;
+}

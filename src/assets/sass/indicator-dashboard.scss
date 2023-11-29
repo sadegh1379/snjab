@@ -1,0 +1,14 @@
+@import "config";
+.line{
+  width: 400px;
+  border: 1px solid $gray;
+  height: 1px;
+}
+
+.titlesec{
+  width: 200px;
+  padding: 5px;
+  position: relative;
+  top: -18px;
+  right: 103px;
+}
